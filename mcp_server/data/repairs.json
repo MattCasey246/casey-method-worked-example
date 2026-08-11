@@ -1,0 +1,17 @@
+[
+  {"id": "R101", "property_id": "P001", "description": "Black mould spreading on child's bedroom wall, window frame rotten", "reported_at": "2026-07-10", "status": "open", "priority": "Urgent", "hazard_flag": true},
+  {"id": "R102", "property_id": "P001", "description": "Extractor fan in bathroom not working", "reported_at": "2026-07-12", "status": "open", "priority": "Urgent", "hazard_flag": true},
+  {"id": "R103", "property_id": "P002", "description": "Damp patch on living room ceiling below flat roof", "reported_at": "2026-07-08", "status": "scheduled", "priority": "Urgent", "hazard_flag": true},
+  {"id": "R104", "property_id": "P002", "description": "Kitchen tap dripping", "reported_at": "2026-07-01", "status": "open", "priority": "Routine", "hazard_flag": false},
+  {"id": "R105", "property_id": "P003", "description": "Total loss of hot water and heating", "reported_at": "2026-07-15", "status": "scheduled", "priority": "Emergency", "hazard_flag": true},
+  {"id": "R106", "property_id": "P003", "description": "Fence panel blown down in garden", "reported_at": "2026-06-20", "status": "open", "priority": "Routine", "hazard_flag": false},
+  {"id": "R107", "property_id": "P004", "description": "Suspected gas smell near boiler cupboard", "reported_at": "2026-07-16", "status": "open", "priority": "Emergency", "hazard_flag": true},
+  {"id": "R108", "property_id": "P004", "description": "Handrail loose on staircase, elderly occupant", "reported_at": "2026-07-11", "status": "scheduled", "priority": "Urgent", "hazard_flag": true},
+  {"id": "R109", "property_id": "P005", "description": "Intercom handset crackles", "reported_at": "2026-07-05", "status": "open", "priority": "Routine", "hazard_flag": false},
+  {"id": "R110", "property_id": "P005", "description": "Bathroom sealant discoloured", "reported_at": "2026-06-28", "status": "closed", "priority": "Routine", "hazard_flag": false},
+  {"id": "R111", "property_id": "P006", "description": "Front door lock stiff, occupant struggles to secure home", "reported_at": "2026-07-13", "status": "open", "priority": "Urgent", "hazard_flag": false},
+  {"id": "R112", "property_id": "P006", "description": "Overflow pipe dripping outside kitchen", "reported_at": "2026-07-09", "status": "open", "priority": "Routine", "hazard_flag": false},
+  {"id": "R113", "property_id": "P007", "description": "Condensation and mould spots around bay window, child in home", "reported_at": "2026-07-14", "status": "open", "priority": "Urgent", "hazard_flag": true},
+  {"id": "R114", "property_id": "P007", "description": "Garden gate hinge broken", "reported_at": "2026-06-15", "status": "closed", "priority": "Routine", "hazard_flag": false},
+  {"id": "R115", "property_id": "P001", "description": "Radiator cold in child's bedroom", "reported_at": "2026-07-15", "status": "open", "priority": "Urgent", "hazard_flag": true}
+]

@@ -1,0 +1,9 @@
+[
+  {"id": "P001", "address": "12 Alder Court, Flat 3B", "build_type": "1960s flat", "occupant_vulnerability": "child"},
+  {"id": "P002", "address": "4 Birch House, Flat 1A", "build_type": "1970s flat", "occupant_vulnerability": "respiratory"},
+  {"id": "P003", "address": "88 Cedar Row", "build_type": "Victorian terrace", "occupant_vulnerability": "none"},
+  {"id": "P004", "address": "3 Damson Walk", "build_type": "1980s semi", "occupant_vulnerability": "elderly"},
+  {"id": "P005", "address": "21 Elm Gardens, Flat 7", "build_type": "2010s flat (EPC B)", "occupant_vulnerability": "none"},
+  {"id": "P006", "address": "7 Foxglove Lane", "build_type": "1950s bungalow", "occupant_vulnerability": "elderly"},
+  {"id": "P007", "address": "15 Gorse Hill", "build_type": "1930s terrace", "occupant_vulnerability": "child"}
+]

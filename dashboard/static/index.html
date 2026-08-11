@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Housing Demo — MCP Observability</title>
+<style>
+  :root {
+    --navy:#0b1f3a; --panel:#122a4d; --panel2:#0e2444; --cyan:#2dd4ea;
+    --text:#e8eef7; --dim:#8fa3bf; --red:#ff5d6c; --amber:#ffb84d; --green:#43d675;
+  }
+  * { box-sizing:border-box; margin:0; }
+  body { background:var(--navy); color:var(--text);
+         font:14px/1.45 -apple-system, "Segoe UI", Roboto, sans-serif; padding:18px; }
+  header { display:flex; align-items:center; gap:14px; flex-wrap:wrap; margin-bottom:16px; }
+  header h1 { font-size:19px; font-weight:700; letter-spacing:.2px; }
+  header .sub { color:var(--dim); font-size:12.5px; }
+  header button { margin-left:auto; background:var(--cyan); color:#062033; border:0;
+    padding:9px 16px; border-radius:8px; font-weight:700; font-size:13.5px; cursor:pointer; }
+  header button:active { transform:scale(.97); }
+  .grid { display:grid; grid-template-columns: 1.35fr 1fr; gap:16px; }
+  @media (max-width:1100px){ .grid{ grid-template-columns:1fr; } }
+  .panel { background:var(--panel); border-radius:12px; padding:14px 16px; }
+  .panel h2 { font-size:12.5px; text-transform:uppercase; letter-spacing:1.2px;
+              color:var(--dim); margin-bottom:10px; }
+  /* property cards */
+  .props { display:grid; grid-template-columns:repeat(auto-fill,minmax(255px,1fr)); gap:10px; }
+  .card { background:var(--panel2); border-radius:10px; padding:11px 12px;
+          border:1px solid transparent; }
+  .card.alert { border-color:var(--red); box-shadow:0 0 0 1px var(--red); }
+  .card .addr { font-weight:650; font-size:13.5px; }
+  .card .meta { color:var(--dim); font-size:11.5px; margin:2px 0 8px; }
+  .badge { display:inline-block; font-size:10.5px; font-weight:700; padding:1px 7px;
+           border-radius:20px; background:#1d3f6e; color:var(--cyan); margin-left:6px; }
+  .badge.vuln { background:#4d2233; color:#ff9db1; }
+  .gauge { height:7px; background:#0a1a33; border-radius:4px; overflow:hidden; margin:4px 0 2px; }
+  .gauge i { display:block; height:100%; border-radius:4px; }
+  .row { display:flex; justify-content:space-between; font-size:11.5px; color:var(--dim); }
+  .row b { color:var(--text); }
+  .alertline { color:var(--red); font-weight:700; font-size:11.5px; margin-top:6px; }
+  svg.spark { width:100%; height:30px; margin-top:6px; }
+  /* repairs table */
+  table { width:100%; border-collapse:collapse; font-size:12.5px; }
+  th { text-align:left; color:var(--dim); font-size:10.5px; text-transform:uppercase;
+       letter-spacing:.8px; padding:4px 6px; }
+  td { padding:5px 6px; border-top:1px solid #1b3358; vertical-align:top; }
+  .prio { font-weight:700; }
+  .prio.Emergency { color:var(--red); } .prio.Urgent { color:var(--amber); }
+  .prio.Routine { color:var(--green); }
+  .haz { color:var(--red); font-weight:700; }
+  .status { color:var(--dim); font-size:11px; }
+  /* event feed */
+  #feed { max-height:430px; overflow-y:auto; display:flex; flex-direction:column; gap:5px; }
+  .ev { background:var(--panel2); border-radius:8px; padding:6px 9px; font-size:12px;
+        display:flex; gap:8px; align-items:baseline; }
+  .ev .k { font-size:10px; font-weight:800; text-transform:uppercase; letter-spacing:.6px;
+           padding:1px 7px; border-radius:20px; white-space:nowrap; }
+  .k.tool_call { background:#123f52; color:var(--cyan); }
+  .k.resource_read { background:#20345c; color:#9db8ff; }
+  .k.notification { background:#521a24; color:#ff9db1; }
+  .k.server { background:#233; color:#9fb; }
+  .ev .n { font-weight:650; }
+  .ev .d { color:var(--dim); }
+  .ev .t { margin-left:auto; color:var(--dim); font-size:10.5px; white-space:nowrap; }
+  #banner { display:none; background:#521a24; border:1px solid var(--red); color:#ffb6c2;
+    border-radius:10px; padding:10px 14px; margin-bottom:14px; font-weight:650; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Housing Estate <span style="color:var(--cyan)">MCP Demo</span></h1>
+  <span class="sub">STDIO MCP server &middot; read-only tools &middot; live observability from <code>logs/events.jsonl</code></span>
+  <button id="tick">Simulate 4h sensor tick</button>
+</header>
+<div id="banner"></div>
+<div class="grid">
+  <div>
+    <div class="panel" style="margin-bottom:16px">
+      <h2>Properties — damp risk (Awaab threshold <span id="thr"></span>)</h2>
+      <div class="props" id="props"></div>
+    </div>
+    <div class="panel">
+      <h2>Repairs queue</h2>
+      <table><thead><tr><th>ID</th><th>Property</th><th>Description</th><th>Priority</th><th>Hazard</th><th>Status</th></tr></thead>
+      <tbody id="repairs"></tbody></table>
+    </div>
+  </div>
+  <div>
+    <div class="panel" style="margin-bottom:16px">
+      <h2>Asset-doc search (RAG — BM25 over 6 docs)</h2>
+      <div style="display:flex;gap:8px">
+        <input id="q" placeholder="e.g. damp survey recommendations, Awaab timescales, roof condition"
+          style="flex:1;background:var(--panel2);border:1px solid #1b3358;border-radius:8px;
+                 color:var(--text);padding:8px 10px;font-size:13px">
+        <button id="go" style="background:var(--cyan);color:#062033;border:0;border-radius:8px;
+          padding:8px 14px;font-weight:700;cursor:pointer">Search</button>
+      </div>
+      <div id="hits" style="margin-top:10px;display:flex;flex-direction:column;gap:8px"></div>
+    </div>
+    <div class="panel">
+      <h2>Live MCP activity <span style="color:var(--green)">&#9679;</span></h2>
+      <div id="feed"></div>
+    </div>
+  </div>
+</div>
+<script>
+const $ = s => document.querySelector(s);
+const esc = s => String(s).replace(/[&<>]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+
+function gaugeColor(v, thr){ return v >= thr ? 'var(--red)' : v >= thr-15 ? 'var(--amber)' : 'var(--green)'; }
+
+async function spark(pid, thr){
+  const r = await fetch(`/api/sensors/${pid}`); const d = await r.json();
+  const vals = d.series.map(s => s.damp_risk_score);
+  const w=240, h=30, min=0, max=100;
+  const pts = vals.map((v,i)=>`${(i/(vals.length-1))*w},${h-(v-min)/(max-min)*h}`).join(' ');
+  const ty = h - (thr/100)*h;
+  return `<svg class="spark" viewBox="0 0 ${w} ${h}" preserveAspectRatio="none">
+    <line x1="0" y1="${ty}" x2="${w}" y2="${ty}" stroke="#ff5d6c55" stroke-width="1" stroke-dasharray="3 3"/>
+    <polyline points="${pts}" fill="none" stroke="var(--cyan)" stroke-width="1.6"/></svg>`;
+}
+
+async function loadProps(){
+  const r = await fetch('/api/properties'); const d = await r.json();
+  $('#thr').textContent = d.threshold;
+  const alerts = d.properties.filter(p => p.damp_alert);
+  const b = $('#banner');
+  if (alerts.length){
+    b.style.display='block';
+    b.textContent = `⚠ Awaab damp-risk alert: ${alerts.map(p=>p.address+' (score '+p.latest.damp_risk_score+')').join(' · ')}`;
+  } else b.style.display='none';
+  const cards = await Promise.all(d.properties.map(async p => {
+    const s = p.latest || {};
+    const sp = await spark(p.id, d.threshold);
+    return `<div class="card ${p.damp_alert?'alert':''}">
+      <div class="addr">${esc(p.address)}
+        ${p.occupant_vulnerability!=='none' ? `<span class="badge vuln">${p.occupant_vulnerability}</span>`:''}</div>
+      <div class="meta">${esc(p.build_type)} · ${p.open_repairs} open repair${p.open_repairs==1?'':'s'}${p.open_hazards?` · <span class="haz">${p.open_hazards} hazard</span>`:''}</div>
+      <div class="row"><span>damp risk</span><b>${s.damp_risk_score ?? '?'} / 100</b></div>
+      <div class="gauge"><i style="width:${s.damp_risk_score||0}%;background:${gaugeColor(s.damp_risk_score||0, d.threshold)}"></i></div>
+      <div class="row"><span>${s.temp_c}°C · ${s.humidity_pct}% RH · CO₂ ${s.co2_ppm}</span></div>
+      ${p.damp_alert?'<div class="alertline">⚠ above serious-hazard threshold</div>':''}
+      ${sp}</div>`;
+  }));
+  $('#props').innerHTML = cards.join('');
+}
+
+async function loadRepairs(){
+  const r = await fetch('/api/repairs'); const d = await r.json();
+  $('#repairs').innerHTML = d.repairs.map(x => `<tr>
+    <td>${x.id}</td><td>${esc(x.address)}</td><td>${esc(x.description)}</td>
+    <td class="prio ${x.priority}">${x.priority}</td>
+    <td>${x.hazard_flag?'<span class="haz">⚠</span>':''}</td>
+    <td class="status">${x.status}</td></tr>`).join('');
+}
+
+function addEvent(e){
+  const div = document.createElement('div'); div.className='ev';
+  const detail = e.args ? Object.entries(e.args).filter(([,v])=>v!=null)
+      .map(([k,v])=>`${k}=${v}`).join(' ') : (e.note||'');
+  div.innerHTML = `<span class="k ${e.kind}">${e.kind.replace('_',' ')}</span>
+    <span class="n">${esc(e.name)}</span>
+    <span class="d">${esc(detail)}${e.result_count!=null?` → ${e.result_count}`:''}${e.duration_ms!=null?` · ${e.duration_ms}ms`:''}</span>
+    <span class="t">${e.ts.slice(11)}</span>`;
+  $('#feed').prepend(div);
+  while ($('#feed').children.length > 80) $('#feed').lastChild.remove();
+}
+
+async function initFeed(){
+  const r = await fetch('/api/events?limit=40'); const d = await r.json();
+  d.events.reverse().forEach(addEvent);
+  const es = new EventSource('/api/events/stream');
+  es.onmessage = m => { const e = JSON.parse(m.data); addEvent(e);
+    if (e.kind==='notification' || (e.kind==='server' && e.name==='world.tick')) { loadProps(); loadRepairs(); } };
+}
+
+$('#tick').onclick = async () => { await fetch('/api/tick', {method:'POST'}); loadProps(); };
+
+async function doSearch(){
+  const q = $('#q').value.trim(); if (!q) return;
+  const r = await fetch(`/api/docsearch?q=${encodeURIComponent(q)}`); const d = await r.json();
+  $('#hits').innerHTML = d.results.length ? d.results.map(h => `
+    <div style="background:var(--panel2);border-radius:8px;padding:8px 10px">
+      <div style="font-size:11px;color:var(--cyan);font-weight:700">${esc(h.doc)} · ${esc(h.section)}
+        <span style="color:var(--dim);font-weight:400">score ${h.score}</span></div>
+      <div style="font-size:12px;color:var(--text);margin-top:4px;white-space:pre-wrap">${esc(h.text.length>380?h.text.slice(0,380)+'…':h.text)}</div>
+    </div>`).join('')
+    : '<div style="color:var(--dim);font-size:12px">No matches in the corpus.</div>';
+}
+$('#go').onclick = doSearch;
+$('#q').addEventListener('keydown', e => { if (e.key === 'Enter') doSearch(); });
+
+loadProps(); loadRepairs(); initFeed();
+setInterval(()=>{ loadProps(); loadRepairs(); }, 15000);
+</script>
+</body>
+</html>

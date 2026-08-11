@@ -1,0 +1,30 @@
+{"ts": "2026-07-16T22:01:18", "epoch_ms": 1784235678137, "kind": "server", "name": "startup", "note": "housing-demo MCP server started (STDIO)"}
+{"ts": "2026-07-16T22:01:18", "epoch_ms": 1784235678141, "kind": "tool_call", "name": "list_repairs", "args": {"status": "open", "priority": null}, "duration_ms": 0, "result_count": 10}
+{"ts": "2026-07-16T22:01:18", "epoch_ms": 1784235678145, "kind": "tool_call", "name": "list_repairs", "args": {"status": null, "priority": "Emergency"}, "duration_ms": 0, "result_count": 2}
+{"ts": "2026-07-16T22:01:18", "epoch_ms": 1784235678148, "kind": "tool_call", "name": "get_repair", "args": {"repair_id": "R101"}, "duration_ms": 0, "result_count": 1}
+{"ts": "2026-07-16T22:01:18", "epoch_ms": 1784235678149, "kind": "tool_call", "name": "get_property_sensors", "args": {"property_id": "P001"}, "duration_ms": 0, "result_count": 12}
+{"ts": "2026-07-16T22:01:18", "epoch_ms": 1784235678149, "kind": "tool_call", "name": "search_asset_docs", "args": {"query": "damp survey"}, "duration_ms": 0, "result_count": 0, "note": "stub \u2014 RAG layer lands at the weekend"}
+{"ts": "2026-07-16T22:01:18", "epoch_ms": 1784235678151, "kind": "resource_read", "name": "housing://properties/P001"}
+{"ts": "2026-07-16T22:02:25", "epoch_ms": 1784235745693, "kind": "server", "name": "world.tick", "note": "sensor estate advanced 4h (7 readings)"}
+{"ts": "2026-07-16T22:02:32", "epoch_ms": 1784235752804, "kind": "server", "name": "world.tick", "note": "sensor estate advanced 4h (7 readings); crossings: ['P002']"}
+{"ts": "2026-07-16T22:43:16", "epoch_ms": 1784238196581, "kind": "server", "name": "world.tick", "note": "sensor estate advanced 4h (7 readings)"}
+{"ts": "2026-07-16T22:56:42", "epoch_ms": 1784239002567, "kind": "server", "name": "startup", "note": "housing-demo MCP server started (STDIO)"}
+{"ts": "2026-07-16T22:56:42", "epoch_ms": 1784239002572, "kind": "tool_call", "name": "list_repairs", "args": {"status": "open", "priority": null}, "duration_ms": 0, "result_count": 10}
+{"ts": "2026-07-16T22:56:42", "epoch_ms": 1784239002575, "kind": "tool_call", "name": "list_repairs", "args": {"status": null, "priority": "Emergency"}, "duration_ms": 0, "result_count": 2}
+{"ts": "2026-07-16T22:56:42", "epoch_ms": 1784239002578, "kind": "tool_call", "name": "get_repair", "args": {"repair_id": "R101"}, "duration_ms": 0, "result_count": 1}
+{"ts": "2026-07-16T22:56:42", "epoch_ms": 1784239002579, "kind": "tool_call", "name": "get_property_sensors", "args": {"property_id": "P001"}, "duration_ms": 0, "result_count": 15}
+{"ts": "2026-07-16T22:56:42", "epoch_ms": 1784239002582, "kind": "tool_call", "name": "search_asset_docs", "args": {"query": "damp survey recommendations", "k": 3}, "duration_ms": 1, "result_count": 0}
+{"ts": "2026-07-16T22:57:42", "epoch_ms": 1784239062383, "kind": "server", "name": "startup", "note": "housing-demo MCP server started (STDIO)"}
+{"ts": "2026-07-16T22:57:42", "epoch_ms": 1784239062387, "kind": "tool_call", "name": "list_repairs", "args": {"status": "open", "priority": null}, "duration_ms": 0, "result_count": 10}
+{"ts": "2026-07-16T22:57:42", "epoch_ms": 1784239062391, "kind": "tool_call", "name": "list_repairs", "args": {"status": null, "priority": "Emergency"}, "duration_ms": 0, "result_count": 2}
+{"ts": "2026-07-16T22:57:42", "epoch_ms": 1784239062394, "kind": "tool_call", "name": "get_repair", "args": {"repair_id": "R101"}, "duration_ms": 0, "result_count": 1}
+{"ts": "2026-07-16T22:57:42", "epoch_ms": 1784239062395, "kind": "tool_call", "name": "get_property_sensors", "args": {"property_id": "P001"}, "duration_ms": 0, "result_count": 15}
+{"ts": "2026-07-16T22:57:42", "epoch_ms": 1784239062397, "kind": "tool_call", "name": "search_asset_docs", "args": {"query": "damp survey recommendations", "k": 3}, "duration_ms": 0, "result_count": 3}
+{"ts": "2026-07-16T22:58:06", "epoch_ms": 1784239086020, "kind": "server", "name": "startup", "note": "housing-demo MCP server started (STDIO)"}
+{"ts": "2026-07-16T22:58:06", "epoch_ms": 1784239086023, "kind": "tool_call", "name": "list_repairs", "args": {"status": "open", "priority": null}, "duration_ms": 0, "result_count": 10}
+{"ts": "2026-07-16T22:58:06", "epoch_ms": 1784239086027, "kind": "tool_call", "name": "list_repairs", "args": {"status": null, "priority": "Emergency"}, "duration_ms": 0, "result_count": 2}
+{"ts": "2026-07-16T22:58:06", "epoch_ms": 1784239086030, "kind": "tool_call", "name": "get_repair", "args": {"repair_id": "R101"}, "duration_ms": 0, "result_count": 1}
+{"ts": "2026-07-16T22:58:06", "epoch_ms": 1784239086031, "kind": "tool_call", "name": "get_property_sensors", "args": {"property_id": "P001"}, "duration_ms": 0, "result_count": 15}
+{"ts": "2026-07-16T22:58:06", "epoch_ms": 1784239086033, "kind": "tool_call", "name": "search_asset_docs", "args": {"query": "damp survey recommendations", "k": 3}, "duration_ms": 0, "result_count": 3}
+{"ts": "2026-07-16T22:58:06", "epoch_ms": 1784239086034, "kind": "tool_call", "name": "search_asset_docs", "args": {"query": "Awaab phase 2 timescales", "k": 3}, "duration_ms": 0, "result_count": 3}
+{"ts": "2026-07-16T22:58:06", "epoch_ms": 1784239086036, "kind": "resource_read", "name": "housing://properties/P001"}

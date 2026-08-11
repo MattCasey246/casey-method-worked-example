@@ -1,0 +1,433 @@
+{
+  "model": "claude-opus-4-8",
+  "variant_A": {
+    "name": "A",
+    "n": 20,
+    "parse_errors": 0,
+    "priority_accuracy": 0.9,
+    "hazard_recall": 0.7272727272727273,
+    "hazard_precision": 0.8888888888888888,
+    "hazard_f1": 0.7999999999999999,
+    "avg_latency_ms": 2423.242650000975,
+    "p95_latency_ms": 3761.248875001911,
+    "total_cost_usd": 0.088245,
+    "cost_per_case_usd": 0.00441225
+  },
+  "variant_B": {
+    "name": "B",
+    "n": 20,
+    "parse_errors": 0,
+    "priority_accuracy": 0.85,
+    "hazard_recall": 1.0,
+    "hazard_precision": 1.0,
+    "hazard_f1": 1.0,
+    "avg_latency_ms": 3021.567245899496,
+    "p95_latency_ms": 9309.561999994912,
+    "total_cost_usd": 0.14312,
+    "cost_per_case_usd": 0.007156
+  },
+  "cases_A": [
+    {
+      "id": 1,
+      "pred_priority": "Emergency",
+      "pred_hazard": true,
+      "priority_correct": true,
+      "latency_ms": 3761.248875001911,
+      "in_tok": 531,
+      "out_tok": 72,
+      "error": null
+    },
+    {
+      "id": 2,
+      "pred_priority": "Urgent",
+      "pred_hazard": true,
+      "priority_correct": true,
+      "latency_ms": 2043.243000000075,
+      "in_tok": 533,
+      "out_tok": 70,
+      "error": null
+    },
+    {
+      "id": 3,
+      "pred_priority": "Routine",
+      "pred_hazard": false,
+      "priority_correct": true,
+      "latency_ms": 2041.207125002984,
+      "in_tok": 528,
+      "out_tok": 78,
+      "error": null
+    },
+    {
+      "id": 4,
+      "pred_priority": "Routine",
+      "pred_hazard": false,
+      "priority_correct": true,
+      "latency_ms": 1905.3213329971186,
+      "in_tok": 520,
+      "out_tok": 63,
+      "error": null
+    },
+    {
+      "id": 5,
+      "pred_priority": "Emergency",
+      "pred_hazard": true,
+      "priority_correct": true,
+      "latency_ms": 1920.9428340036538,
+      "in_tok": 530,
+      "out_tok": 79,
+      "error": null
+    },
+    {
+      "id": 6,
+      "pred_priority": "Emergency",
+      "pred_hazard": true,
+      "priority_correct": true,
+      "latency_ms": 1745.188082997629,
+      "in_tok": 528,
+      "out_tok": 71,
+      "error": null
+    },
+    {
+      "id": 7,
+      "pred_priority": "Emergency",
+      "pred_hazard": true,
+      "priority_correct": false,
+      "latency_ms": 2754.3347499959054,
+      "in_tok": 521,
+      "out_tok": 78,
+      "error": null
+    },
+    {
+      "id": 8,
+      "pred_priority": "Routine",
+      "pred_hazard": false,
+      "priority_correct": true,
+      "latency_ms": 2368.423125000845,
+      "in_tok": 525,
+      "out_tok": 70,
+      "error": null
+    },
+    {
+      "id": 9,
+      "pred_priority": "Routine",
+      "pred_hazard": false,
+      "priority_correct": false,
+      "latency_ms": 6064.971375002642,
+      "in_tok": 534,
+      "out_tok": 72,
+      "error": null
+    },
+    {
+      "id": 10,
+      "pred_priority": "Urgent",
+      "pred_hazard": false,
+      "priority_correct": true,
+      "latency_ms": 2187.164708004275,
+      "in_tok": 523,
+      "out_tok": 71,
+      "error": null
+    },
+    {
+      "id": 11,
+      "pred_priority": "Emergency",
+      "pred_hazard": true,
+      "priority_correct": true,
+      "latency_ms": 1743.0454589994042,
+      "in_tok": 525,
+      "out_tok": 75,
+      "error": null
+    },
+    {
+      "id": 12,
+      "pred_priority": "Routine",
+      "pred_hazard": false,
+      "priority_correct": true,
+      "latency_ms": 1919.9748340033693,
+      "in_tok": 517,
+      "out_tok": 66,
+      "error": null
+    },
+    {
+      "id": 13,
+      "pred_priority": "Urgent",
+      "pred_hazard": true,
+      "priority_correct": true,
+      "latency_ms": 2246.2564169982215,
+      "in_tok": 531,
+      "out_tok": 73,
+      "error": null
+    },
+    {
+      "id": 14,
+      "pred_priority": "Routine",
+      "pred_hazard": false,
+      "priority_correct": true,
+      "latency_ms": 2294.0392079981393,
+      "in_tok": 520,
+      "out_tok": 65,
+      "error": null
+    },
+    {
+      "id": 15,
+      "pred_priority": "Routine",
+      "pred_hazard": false,
+      "priority_correct": true,
+      "latency_ms": 2719.9662909988547,
+      "in_tok": 530,
+      "out_tok": 76,
+      "error": null
+    },
+    {
+      "id": 16,
+      "pred_priority": "Urgent",
+      "pred_hazard": true,
+      "priority_correct": true,
+      "latency_ms": 2213.7247920036316,
+      "in_tok": 526,
+      "out_tok": 66,
+      "error": null
+    },
+    {
+      "id": 17,
+      "pred_priority": "Routine",
+      "pred_hazard": false,
+      "priority_correct": true,
+      "latency_ms": 1980.2272500019171,
+      "in_tok": 531,
+      "out_tok": 61,
+      "error": null
+    },
+    {
+      "id": 18,
+      "pred_priority": "Emergency",
+      "pred_hazard": true,
+      "priority_correct": true,
+      "latency_ms": 2074.2773750025663,
+      "in_tok": 527,
+      "out_tok": 77,
+      "error": null
+    },
+    {
+      "id": 19,
+      "pred_priority": "Routine",
+      "pred_hazard": false,
+      "priority_correct": true,
+      "latency_ms": 2267.6918330034823,
+      "in_tok": 523,
+      "out_tok": 71,
+      "error": null
+    },
+    {
+      "id": 20,
+      "pred_priority": "Routine",
+      "pred_hazard": false,
+      "priority_correct": true,
+      "latency_ms": 2213.604333002877,
+      "in_tok": 531,
+      "out_tok": 69,
+      "error": null
+    }
+  ],
+  "cases_B": [
+    {
+      "id": 1,
+      "pred_priority": "Emergency",
+      "pred_hazard": true,
+      "priority_correct": true,
+      "latency_ms": 1955.998917001125,
+      "in_tok": 1088,
+      "out_tok": 64,
+      "error": null
+    },
+    {
+      "id": 2,
+      "pred_priority": "Emergency",
+      "pred_hazard": true,
+      "priority_correct": false,
+      "latency_ms": 2105.603040996357,
+      "in_tok": 1090,
+      "out_tok": 90,
+      "error": null
+    },
+    {
+      "id": 3,
+      "pred_priority": "Routine",
+      "pred_hazard": true,
+      "priority_correct": true,
+      "latency_ms": 2659.1181670009973,
+      "in_tok": 1085,
+      "out_tok": 74,
+      "error": null
+    },
+    {
+      "id": 4,
+      "pred_priority": "Routine",
+      "pred_hazard": false,
+      "priority_correct": true,
+      "latency_ms": 1998.1644170038635,
+      "in_tok": 1077,
+      "out_tok": 63,
+      "error": null
+    },
+    {
+      "id": 5,
+      "pred_priority": "Emergency",
+      "pred_hazard": true,
+      "priority_correct": true,
+      "latency_ms": 2159.7248329999275,
+      "in_tok": 1087,
+      "out_tok": 76,
+      "error": null
+    },
+    {
+      "id": 6,
+      "pred_priority": "Emergency",
+      "pred_hazard": true,
+      "priority_correct": true,
+      "latency_ms": 2744.893457995204,
+      "in_tok": 1085,
+      "out_tok": 68,
+      "error": null
+    },
+    {
+      "id": 7,
+      "pred_priority": "Urgent",
+      "pred_hazard": false,
+      "priority_correct": true,
+      "latency_ms": 2279.9362919977284,
+      "in_tok": 1078,
+      "out_tok": 70,
+      "error": null
+    },
+    {
+      "id": 8,
+      "pred_priority": "Routine",
+      "pred_hazard": false,
+      "priority_correct": true,
+      "latency_ms": 2387.109084003896,
+      "in_tok": 1082,
+      "out_tok": 61,
+      "error": null
+    },
+    {
+      "id": 9,
+      "pred_priority": "Urgent",
+      "pred_hazard": true,
+      "priority_correct": true,
+      "latency_ms": 9888.193124999816,
+      "in_tok": 1091,
+      "out_tok": 71,
+      "error": null
+    },
+    {
+      "id": 10,
+      "pred_priority": "Urgent",
+      "pred_hazard": false,
+      "priority_correct": true,
+      "latency_ms": 2486.98691699974,
+      "in_tok": 1080,
+      "out_tok": 69,
+      "error": null
+    },
+    {
+      "id": 11,
+      "pred_priority": "Emergency",
+      "pred_hazard": true,
+      "priority_correct": true,
+      "latency_ms": 2542.2584580010152,
+      "in_tok": 1082,
+      "out_tok": 75,
+      "error": null
+    },
+    {
+      "id": 12,
+      "pred_priority": "Routine",
+      "pred_hazard": false,
+      "priority_correct": true,
+      "latency_ms": 2637.9576249964884,
+      "in_tok": 1074,
+      "out_tok": 66,
+      "error": null
+    },
+    {
+      "id": 13,
+      "pred_priority": "Emergency",
+      "pred_hazard": true,
+      "priority_correct": false,
+      "latency_ms": 2068.557584003429,
+      "in_tok": 1088,
+      "out_tok": 80,
+      "error": null
+    },
+    {
+      "id": 14,
+      "pred_priority": "Routine",
+      "pred_hazard": false,
+      "priority_correct": true,
+      "latency_ms": 2384.8856660042657,
+      "in_tok": 1077,
+      "out_tok": 62,
+      "error": null
+    },
+    {
+      "id": 15,
+      "pred_priority": "Routine",
+      "pred_hazard": false,
+      "priority_correct": true,
+      "latency_ms": 2060.1599169967812,
+      "in_tok": 1087,
+      "out_tok": 65,
+      "error": null
+    },
+    {
+      "id": 16,
+      "pred_priority": "Urgent",
+      "pred_hazard": true,
+      "priority_correct": true,
+      "latency_ms": 1865.0640839987318,
+      "in_tok": 1083,
+      "out_tok": 66,
+      "error": null
+    },
+    {
+      "id": 17,
+      "pred_priority": "Routine",
+      "pred_hazard": false,
+      "priority_correct": true,
+      "latency_ms": 2697.127332998207,
+      "in_tok": 1088,
+      "out_tok": 62,
+      "error": null
+    },
+    {
+      "id": 18,
+      "pred_priority": "Emergency",
+      "pred_hazard": true,
+      "priority_correct": true,
+      "latency_ms": 2040.9145000012359,
+      "in_tok": 1084,
+      "out_tok": 69,
+      "error": null
+    },
+    {
+      "id": 19,
+      "pred_priority": "Routine",
+      "pred_hazard": false,
+      "priority_correct": true,
+      "latency_ms": 9309.561999994912,
+      "in_tok": 1080,
+      "out_tok": 59,
+      "error": null
+    },
+    {
+      "id": 20,
+      "pred_priority": "Urgent",
+      "pred_hazard": true,
+      "priority_correct": false,
+      "latency_ms": 2159.1294999961974,
+      "in_tok": 1088,
+      "out_tok": 80,
+      "error": null
+    }
+  ]
+}
