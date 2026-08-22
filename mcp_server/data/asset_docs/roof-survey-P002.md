@@ -1,5 +1,7 @@
 # Flat Roof Condition Survey — 4 Birch House (P002)
-Date: 2026-06-30 · Surveyor: Apex Roofing Consultants
+> **SYNTHETIC DOCUMENT** — fictional property, occupants, organisations and data; created for the Casey Method reference implementation. Any resemblance to real properties, firms or persons is coincidental.
+
+Date: 2026-06-30 · Surveyor: Example Roofing Consultants (fictitious)
 
 ## Findings
 Felt covering at end of serviceable life (installed 2008, 18 years old). Ponding to south-east corner with two failed lap joints. Moisture meter readings inside Flat 1A living room ceiling elevated, consistent with slow ingress (see repair R103). Insulation likely saturated in a 4m2 area around the outlet.

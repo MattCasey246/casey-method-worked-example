@@ -1,4 +1,6 @@
 # Component Schedule — Extract (key ages at July 2026)
+> **SYNTHETIC DOCUMENT** — fictional property, occupants, organisations and data; created for the Casey Method reference implementation. Any resemblance to real properties, firms or persons is coincidental.
+
 | Ref | Property | Component | Installed | Expected life | Status |
 |-----|----------|-----------|-----------|---------------|--------|
 | AC-WIN-03 | P001 12 Alder Court | Timber windows (north elev.) | 1998 | 30y | Beyond serviceable — frame rot confirmed by survey |

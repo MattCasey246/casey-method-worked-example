@@ -1,0 +1,33 @@
+cff-version: 1.2.0
+message: "If you use the Casey Method or this reference implementation, please cite it as below."
+title: "The Casey Method: A Safety-Gated Governance Framework for AI Adoption in Social and Assisted Housing and Other Essential Services — reference implementation"
+type: software
+authors:
+  - family-names: Casey
+    given-names: Matt
+    affiliation: "Casey IT Limited"
+    # orcid: "https://orcid.org/XXXX-XXXX-XXXX-XXXX"  # add at deposit
+version: 1.1.0
+date-released: 2026-08-22
+license: MIT
+repository-code: "https://github.com/MattCasey246/casey-method-reference-implementation"
+keywords:
+  - AI governance
+  - safety-critical AI
+  - LLM evaluation
+  - social housing
+  - Awaab's Law
+  - NSPIRE
+  - hazard recall
+  - AI readiness assessment
+# doi: 10.5281/zenodo.XXXXXXX  # concept DOI, add after Zenodo GitHub-release integration mints it
+preferred-citation:
+  type: report
+  title: "The Casey Method: A Safety-Gated Governance Framework for AI Adoption in Social and Assisted Housing and Other Essential Services"
+  authors:
+    - family-names: Casey
+      given-names: Matt
+      affiliation: "Casey IT Limited"
+  year: 2026
+  version: 1.1.0
+  # doi: 10.5281/zenodo.XXXXXXX  # Playbook publication record concept DOI, add at deposit

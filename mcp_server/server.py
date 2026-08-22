@@ -1,4 +1,4 @@
-"""CCAR-P housing demo — MCP server (D3: Integration).
+"""Casey Method reference implementation — MCP server (Stage 4: least-capability integration).
 
 STDIO transport, read-only typed tools, resources for attachable context, and a
 damp-risk watcher that emits `resources/updated` notifications when a property
@@ -15,7 +15,7 @@ Design notes (full rationale in ADR.md):
   guardrail story clean (the agent physically cannot write).
 - Resources expose records as attachable context; tools answer queries.
 - Every tool call / resource read / notification is appended to
-  logs/events.jsonl (D4 observability) — the dashboard tails that file.
+  logs/events.jsonl (Stage 5 observability) — the dashboard tails that file.
 """
 import asyncio
 import json

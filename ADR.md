@@ -1,8 +1,8 @@
-# Architecture Decision Records — housing triage eval
+# Architecture Decision Records — Casey Method reference implementation
 
-One line per decision, with the reasoning. This doubles as CCAR-P practice for
-Domains 1 (Solution Design) and 6 (Stakeholder/Lifecycle), and as Lane-2
-"here's how I reason about an AI system" collateral.
+One line per decision, with the reasoning. The ADR catalogue is itself one of
+the method's instruments (PLAYBOOK.md §8): every rule the Stage 3 gate and the
+Stage 4 integration patterns apply is recorded here as an inspectable decision.
 
 1. **Structured outputs over free-text parsing.** Used `output_config.format`
    (via `messages.parse` + a Pydantic schema) so every response is a valid
@@ -36,20 +36,20 @@ Domains 1 (Solution Design) and 6 (Stakeholder/Lifecycle), and as Lane-2
    under-reading a downplayed hazard, and over-reacting to the word "emergency".
    The eval measures whether the rubric variant actually fixes them.
 
-## MCP server + observability dashboard (built 16 Jul, D3 + D4)
+## MCP server + observability dashboard (built 16 Jul)
 
 7. **STDIO transport, not StreamableHTTP.** Local, single-client (Claude
    Code / Inspector / the guarded agent), zero network surface, no auth story
    needed. StreamableHTTP is the right choice when the server is remote or
    serves multiple concurrent clients (e.g. a shared org-wide housing-data
-   service behind SSO) — that trade-off is the D3 exam point; recording it
+   service behind SSO) — that trade-off is the design point; recording it
    here is the answer.
 
 8. **Resources AND tools, deliberately split.** Property records are exposed
    as MCP *resources* (attachable, read-only context the client controls);
    queries are *tools* (parameterised calls the model makes). Same data,
    different contract — knowing which side of that line a capability sits on
-   is a Domain-3 discriminator.
+   is the design discriminator.
 
 9. **The MCP surface is read-only; the world tick lives in the dashboard
    backend.** No mutation tools exist on the server, so Thursday's guarded
@@ -63,7 +63,7 @@ Domains 1 (Solution Design) and 6 (Stakeholder/Lifecycle), and as Lane-2
     notification (with args, duration, result counts) to `logs/events.jsonl`;
     the dashboard tails the file (SSE) rather than coupling to the server
     process. Either side can run alone; the log is the interface. This is the
-    D4 "structured logging of tool calls" requirement made visible.
+    method's Stage 5 "structured logging of tool calls" requirement made visible.
 
 11. **Notifications: log always, deliver when connected.** A watcher task
     polls sensor state; an Awaab threshold crossing is *always* recorded as a
@@ -78,7 +78,7 @@ Domains 1 (Solution Design) and 6 (Stakeholder/Lifecycle), and as Lane-2
     the eval harness, MCP layer and UI all agree on what "serious hazard"
     means because there is exactly one definition.
 
-## RAG layer + caching study (built 16 Jul late, D3 + D2)
+## RAG layer + caching study (built 16 Jul late)
 
 13. **Section-aware chunking, no overlap.** Markdown headings are semantic
     boundaries in survey-style documents, so chunks follow sections (merged to
@@ -93,7 +93,7 @@ Domains 1 (Solution Design) and 6 (Stakeholder/Lifecycle), and as Lane-2
     heavy resident-facing queries, corpus beyond a few hundred chunks,
     multilingual content, or semantic cross-document joins → Voyage embeddings
     + a vector store. Choosing the simplest retrieval that meets the
-    requirement — and writing down when it stops meeting it — is the D3 point.
+    requirement — and writing down when it stops meeting it — is the design point.
 
 15. **Caching study designed around the minimum-cacheable-prefix gotcha.** The
     minimum cacheable prefix is MODEL-DEPENDENT: on `claude-opus-4-8` (this

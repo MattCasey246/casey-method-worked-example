@@ -1,5 +1,5 @@
 """
-CCAR-P build-week demo — Evaluation harness (Domain 4: Evaluation, Testing & Optimization).
+Casey Method reference implementation — Stage 3 safety-first evaluation gate.
 
 Task: triage a free-text social-housing repair request into
   - priority: Emergency | Urgent | Routine
@@ -10,11 +10,18 @@ Task: triage a free-text social-housing repair request into
 
 Why this task: it has a genuine SAFETY dimension. A missed hazard (false
 negative) is the dangerous error — so the headline metric is hazard RECALL,
-not raw accuracy. That is exactly the "which metric actually matters" judgement
-the exam's Evaluation domain rewards.
+not raw accuracy, per the method's metric hierarchy (PLAYBOOK.md §3, Stage 3).
+The gate's bar is 100% recall on the seeded worst-failure cases; the summary
+prints an explicit pass/fail against it.
 
 The harness runs an A/B of two prompt variants over a labelled 20-case set and
 records accuracy, hazard recall/precision, latency, and cost per variant.
+
+METHODOLOGICAL DISCLOSURE: SYSTEM_B's few-shot exemplars closely mirror test
+cases 3 and 15, and its rubric wording anticipates case 20 — the rubric and the
+dataset traps were designed together. Headline figures partly reflect that
+overlap; contamination-excluded figures and the planned held-out-set iteration
+are documented in README.md and PLAYBOOK.md §3.
 
 Run:  python run_eval.py
 (Needs the anthropic SDK + credentials — see README.md.)
@@ -89,6 +96,11 @@ CAUTION
 EXAMPLES
 - "Condensation on the windows and a musty smell in the bathroom." -> priority: Routine, serious_hazard: true (early damp/mould must be assessed), escalate: true.
 - "Emergency! My cupboard door fell off and needs rehanging." -> priority: Routine, serious_hazard: false, escalate: false (cosmetic despite the wording)."""
+# NOTE (disclosure): the two EXAMPLES above closely mirror dataset cases 3 and
+# 15, and the rubric bullet on downplayed damp quotes case 20's phrasing.
+# Kept verbatim so the recorded July 2026 results remain reproducible as run;
+# the held-out-set iteration (see README.md) must use exemplars with zero
+# lexical overlap with any test case.
 
 
 @dataclass
@@ -250,3 +262,12 @@ def print_comparison(a: VariantReport, b: VariantReport) -> None:
     print("=" * 62)
     print("Decision rule: hazard recall (safety) first, then priority accuracy,")
     print("then cost. A missed hazard is worse than a false alarm.")
+    # The Stage 3 gate itself (PLAYBOOK.md §3): the bar is 100% recall on the
+    # seeded worst-failure cases in the labelled set. Explicit pass/fail:
+    print(f"RECALL BAR (100% on seeded hazards): "
+          f"A {'PASS' if a.hazard_recall >= 1.0 else 'FAIL'} "
+          f"({a.hazard_recall:.1%})  |  "
+          f"B {'PASS' if b.hazard_recall >= 1.0 else 'FAIL'} "
+          f"({b.hazard_recall:.1%})")
+    print("A variant that fails the bar is ineligible for enablement,")
+    print("whatever its other metrics. The bar does not move to meet the model.")

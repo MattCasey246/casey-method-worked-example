@@ -1,4 +1,4 @@
-"""Structured event log shared by the MCP server and the dashboard (D4 observability).
+"""Structured event log shared by the MCP server and the dashboard (Stage 5 observability).
 
 Every tool call, resource read and notification is appended as one JSON line to
 logs/events.jsonl. The dashboard backend tails this file, so the UI shows real

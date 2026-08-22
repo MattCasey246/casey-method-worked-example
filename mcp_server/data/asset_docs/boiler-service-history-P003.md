@@ -1,4 +1,6 @@
 # Heating System Service History — 88 Cedar Row (P003)
+> **SYNTHETIC DOCUMENT** — fictional property, occupants, organisations and data; created for the Casey Method reference implementation. Any resemblance to real properties, firms or persons is coincidental.
+
 Appliance: Worcester 30i combi, installed 2019.
 
 - 2024-11-03: Annual service. No defects. Gas tightness pass.

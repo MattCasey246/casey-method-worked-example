@@ -1,4 +1,4 @@
-"""D2 study — prompt caching applied and MEASURED (CCAR-P Domain 2).
+"""Cost study — prompt caching applied and MEASURED (Casey Method Stage 5: solution-cost ownership).
 
 Scenario: the triage service carries a shared context pack on every call —
 the Variant-B rubric PLUS the org's policy/asset corpus (Awaab memo, surveys,

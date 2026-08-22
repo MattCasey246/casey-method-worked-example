@@ -1,7 +1,7 @@
-"""Tiny RAG layer over the asset-doc corpus (D3: retrieval design choices).
+"""Tiny RAG layer over the asset-doc corpus (retrieval design choices).
 
 Deliberately LEXICAL (hand-rolled BM25), not embeddings — the decision, and
-when it flips, is the exam point (ADR 14):
+when it flips, is the design point (ADR 14):
 - Corpus is 6 documents / ~40 chunks of domain-specific UK housing vocabulary.
   Queries share that vocabulary ("damp survey", "roof", "Awaab timescales"),
   so lexical retrieval is accurate, transparent (scores are explainable),

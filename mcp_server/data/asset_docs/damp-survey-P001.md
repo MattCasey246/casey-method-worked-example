@@ -1,5 +1,7 @@
 # Damp & Mould Survey — 12 Alder Court, Flat 3B (P001)
-Date: 2026-07-11 · Surveyor: KJH Building Pathology Ltd
+> **SYNTHETIC DOCUMENT** — fictional property, occupants, organisations and data; created for the Casey Method reference implementation. Any resemblance to real properties, firms or persons is coincidental.
+
+Date: 2026-07-11 · Surveyor: Example Building Pathology Ltd (fictitious)
 
 ## Findings
 Rising relative humidity recorded across the past month, now peaking above 80% in the child's bedroom and bathroom. Category 1 mould growth on the north-facing bedroom wall around a rotten window frame. Bathroom extractor fan non-operational (see repair R102); no mechanical ventilation currently functioning in the wet rooms. Cold bridging at the window reveal is accelerating condensation.
