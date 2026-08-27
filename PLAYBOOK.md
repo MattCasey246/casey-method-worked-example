@@ -2,7 +2,7 @@
 ## A Safety-Gated Governance Framework for AI Adoption in Social and Assisted Housing and Other Essential Services
 
 **Version 1.1.0 — 22 August 2026**
-**Author: Matt Casey, Director, Casey IT Limited** *(ORCID: to be added at deposit)*
+**Author: Matthew Casey, Director, Casey IT Limited** *(ORCID: to be added at deposit)*
 **Status: Versioned methodology publication. The method is published for adoption and independent implementation (§7). Casey IT Limited applies it commercially; in any Casey IT engagement the signed Statement of Work governs and prevails over this document. Consolidates instruments developed and applied 30 May – 25 July 2026 (source register and provenance note in §10).**
 **Canonical version: this document is deposited at Zenodo under a concept DOI *(to be minted at deposit)*; cite the concept DOI, which always resolves to the latest version.**
 
@@ -159,4 +159,4 @@ Consolidated from instruments and documents dated 30 May – 25 July 2026: asses
 | 1.0.1 | 25 Jul 2026 | Same-day corrections following a three-reviewer internal adversarial review: own-tenant remediation scope stated precisely; framework citation corrected to the whitepaper's actual four lenses; instrument statuses aligned to the record; cost figure recomputed from raw run output (~62%); synthetic-set caveat moved inline; contractual wording bounded to the signed SOW; §6 claim restated as the ordering constraint. |
 | 1.1.0 | 22 Aug 2026 | Pre-publication edition following a structured ten-lens adversarial review. Method decoupled from the delivering firm; US statutory anchor (NSPIRE) made load-bearing with a worked derivation (§2.1); prior-art positioning added and the distinctiveness claim narrowed to the binding composition (§6); adoption and independent-implementation pathway added (§7); Stage 3 recall bar stated explicitly and the evaluation's exemplar–test overlap disclosed with contamination-excluded figures; own-tenant application summarised at engagement-record level; abstract, keywords, citation block, and licences added; Sourcing Shift publication dates reconciled; provenance note added. |
 
-*Text © Matt Casey / Casey IT Limited 2026, licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Reference implementation code licensed under the MIT License. The method was developed independently on Casey IT's own time and instruments.*
+*Text © Matthew Casey / Casey IT Limited 2026, licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Reference implementation code licensed under the MIT License. The method was developed independently on Casey IT's own time and instruments.*
