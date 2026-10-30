@@ -22,7 +22,7 @@ keywords:
   - NSPIRE
   - hazard recall
   - AI readiness assessment
-# doi: 10.5281/zenodo.XXXXXXX  # SOFTWARE concept DOI for this worked example, minted by the Zenodo GitHub-release integration
+doi: 10.5281/zenodo.23810858  # SOFTWARE concept DOI for this worked example (Zenodo GitHub-release integration)
 preferred-citation:
   type: report
   title: "The Casey Method: Secure Modernisation and Safety-Gated AI Adoption for Small and Mid-Sized Organisations"
