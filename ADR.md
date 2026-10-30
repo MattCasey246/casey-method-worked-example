@@ -1,8 +1,8 @@
-# Architecture Decision Records — Casey Method reference implementation
+# Architecture Decision Records — Casey Method worked example
 
 One line per decision, with the reasoning. The ADR catalogue is itself one of
-the method's instruments (PLAYBOOK.md §8): every rule the Stage 3 gate and the
-Stage 4 integration patterns apply is recorded here as an inspectable decision.
+the method's instruments (the Casey Method document, §8): every rule the Stage 3 gate and the
+Stage 4D integration patterns apply is recorded here as an inspectable decision.
 
 1. **Structured outputs over free-text parsing.** Used `output_config.format`
    (via `messages.parse` + a Pydantic schema) so every response is a valid
@@ -78,7 +78,7 @@ Stage 4 integration patterns apply is recorded here as an inspectable decision.
     the eval harness, MCP layer and UI all agree on what "serious hazard"
     means because there is exactly one definition.
 
-## RAG layer + caching study (built 16 Jul late)
+## RAG layer + caching study (built 16 Jul late; the caching study script is held back from the public v2.0.0 release)
 
 13. **Section-aware chunking, no overlap.** Markdown headings are semantic
     boundaries in survey-style documents, so chunks follow sections (merged to
@@ -110,4 +110,5 @@ Stage 4 integration patterns apply is recorded here as an inspectable decision.
     would have done exactly that). Writes bill 1.25x, reads 0.1x → breakeven ~2
     calls within the 5-minute TTL. Run: `run_caching_study.py` (needs an API
     key). [Corrected 23 Jul: original ADR cited the wrong 1024 floor and a
-    non-existent ~4k pack size.]
+    non-existent ~4k pack size.] [30 Oct 2026: `run_caching_study.py` is held back from
+    the public v2.0.0 release; this record stays because the design decision stands.]

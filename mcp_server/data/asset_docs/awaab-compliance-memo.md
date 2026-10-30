@@ -1,5 +1,5 @@
 # Policy Memo — Awaab's Law Phase 2 Readiness
-> **SYNTHETIC DOCUMENT** — fictional property, occupants, organisations and data; created for the Casey Method reference implementation. Any resemblance to real properties, firms or persons is coincidental.
+> **SYNTHETIC DOCUMENT** — fictional property, occupants, organisations and data; created for the Casey Method worked example. Any resemblance to real properties, firms or persons is coincidental.
 
 Author: Head of Assets · Date: 2026-06-20
 

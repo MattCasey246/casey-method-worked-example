@@ -1,5 +1,5 @@
 # Damp & Mould Survey — 12 Alder Court, Flat 3B (P001)
-> **SYNTHETIC DOCUMENT** — fictional property, occupants, organisations and data; created for the Casey Method reference implementation. Any resemblance to real properties, firms or persons is coincidental.
+> **SYNTHETIC DOCUMENT** — fictional property, occupants, organisations and data; created for the Casey Method worked example. Any resemblance to real properties, firms or persons is coincidental.
 
 Date: 2026-07-11 · Surveyor: Example Building Pathology Ltd (fictitious)
 

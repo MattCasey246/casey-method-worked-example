@@ -1,4 +1,4 @@
-"""Dashboard backend for the Casey Method reference implementation (Stage 5 observability made visible).
+"""Dashboard backend for the Casey Method worked example (Stage 5 observability made visible).
 
 Reads the SAME data files and event log as the MCP server — it does not talk to
 the MCP server directly. The MCP layer stays a clean STDIO server for MCP

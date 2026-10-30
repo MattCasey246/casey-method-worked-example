@@ -1,4 +1,4 @@
-"""Casey Method reference implementation — MCP server (Stage 4: least-capability integration).
+"""Casey Method worked example — MCP server (Stage 4D: least-capability integration).
 
 STDIO transport, read-only typed tools, resources for attachable context, and a
 damp-risk watcher that emits `resources/updated` notifications when a property

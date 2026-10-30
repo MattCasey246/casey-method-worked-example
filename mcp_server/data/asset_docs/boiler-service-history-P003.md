@@ -1,5 +1,5 @@
 # Heating System Service History — 88 Cedar Row (P003)
-> **SYNTHETIC DOCUMENT** — fictional property, occupants, organisations and data; created for the Casey Method reference implementation. Any resemblance to real properties, firms or persons is coincidental.
+> **SYNTHETIC DOCUMENT** — fictional property, occupants, organisations and data; created for the Casey Method worked example. Any resemblance to real properties, firms or persons is coincidental.
 
 Appliance: Worcester 30i combi, installed 2019.
 

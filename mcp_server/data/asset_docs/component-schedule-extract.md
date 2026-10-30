@@ -1,5 +1,5 @@
 # Component Schedule — Extract (key ages at July 2026)
-> **SYNTHETIC DOCUMENT** — fictional property, occupants, organisations and data; created for the Casey Method reference implementation. Any resemblance to real properties, firms or persons is coincidental.
+> **SYNTHETIC DOCUMENT** — fictional property, occupants, organisations and data; created for the Casey Method worked example. Any resemblance to real properties, firms or persons is coincidental.
 
 | Ref | Property | Component | Installed | Expected life | Status |
 |-----|----------|-----------|-----------|---------------|--------|

@@ -1,13 +1,15 @@
-# The Casey Method — reference implementation
+# The Casey Method — worked example
 
-The working reference implementation of **the Casey Method**, a safety-gated
-governance framework for AI adoption in social and assisted housing and other
-essential services. The method itself is specified in [`PLAYBOOK.md`](PLAYBOOK.md)
-(canonical deposit: Zenodo DOI, to be minted at deposit). This repository is the
-proof that the method's instruments are real, runnable artefacts: the Stage 3
-safety-first evaluation gate, the Stage 4 least-capability integration patterns,
-and the Stage 5 observability dashboard, built on a **fully synthetic** housing
-estate.
+The worked example for **the Casey Method**, a five-stage method for secure
+modernisation and safety-gated AI adoption in small and mid-sized organisations
+(assess, modernise, automate, secure and govern, train and hand over). The method itself
+is published separately as a citable document: *The Casey Method*, v2.0.0, Zenodo DOI
+[10.5281/zenodo.23810507](https://doi.org/10.5281/zenodo.23810507). This repository holds no copy of the method text. It is a
+demonstration of the method's AI gates as real, runnable artefacts: the Stage 4C
+safety-first evaluation gate, the Stage 4D least-capability integration patterns,
+and the Stage 5 observability dashboard handed over to the organisation, built on
+a **fully synthetic** housing estate. Stages 1 to 3 use standard industry tooling
+and are not reproduced here.
 
 > **All data in this repository is synthetic.** Every property, occupant,
 > organisation, survey, sensor reading, and repair record is fictitious and was
@@ -16,7 +18,7 @@ estate.
 
 ## What it demonstrates
 
-**Stage 3 — the safety-first evaluation gate.** Triages a free-text
+**Stage 4C — the safety-first evaluation gate.** Triages a free-text
 social-housing repair request into a priority (Emergency / Urgent / Routine)
 and a serious-hazard flag, using the Claude API with structured outputs, then
 runs an A/B of two prompt variants over a labelled 20-case set and scores them
@@ -40,7 +42,7 @@ language (cases 3, 20) and a cosmetic job a tenant labels "emergency" (case 15).
 > 15, and 20, Variant B still catches the one seeded hazard Variant A misses
 > (9/9 vs 8/9 recall) while the accuracy difference disappears (both 88.2%).
 > The stated next iteration is a held-out set with no lexical overlap with any
-> prompt exemplar. Full disclosure in `PLAYBOOK.md` §3, Stage 3.
+> prompt exemplar. Full disclosure in the method document, §3, Stage 4C.
 
 ## Run it
 
@@ -56,14 +58,13 @@ Per-case detail + summary metrics are written to `results/results_<timestamp>.js
 
 | File | Purpose |
 |------|---------|
-| `PLAYBOOK.md` | The Casey Method — the full published methodology |
 | `dataset.jsonl` | 20 labelled synthetic cases (gold priority + hazard) |
 | `eval_harness.py` | schema, the two prompt variants, metrics, A/B logic, recall bar |
 | `run_eval.py` | entry point + credential handling |
 | `ADR.md` | architecture decision records 1–15 |
 | `CITATION.cff` | citation metadata |
 
-## MCP server + dashboard (Stage 4 / Stage 5)
+## MCP server + dashboard (Stage 4D / Stage 5)
 
 - **MCP server (STDIO):** `.venv/bin/python -m mcp_server.server` — 4 read-only tools
   (`list_repairs`, `get_repair`, `get_property_sensors`, `search_asset_docs`),
@@ -79,22 +80,18 @@ Per-case detail + summary metrics are written to `results/results_<timestamp>.js
 - **Smoke test:** `.venv/bin/python smoke_test_mcp.py` (spawns the server over real STDIO).
 - Decisions 7–12 in `ADR.md`.
 
-## RAG layer + caching study
+## RAG layer
 
 - **Retrieval:** `search_asset_docs` — section-aware chunking + hand-rolled
   BM25 over 6 synthetic asset docs (`mcp_server/data/asset_docs/`), hits carry
   doc/section provenance. Try it in the dashboard's "Asset-doc search" panel.
   ADRs 13–14.
-- **Caching study:** `ANTHROPIC_API_KEY=... .venv/bin/python run_caching_study.py`
-  — measures uncached vs cached (rubric + corpus prefix, ~4k tok) over the 20
-  cases: cache write/read tokens, latency, cost delta. ADR 15 documents the
-  minimum-cacheable-prefix constraint the design works around. ~40 API calls,
-  ≈$1.25 total.
 
 ## Licence and citation
 
-Code: [MIT](LICENSE). Method text (`PLAYBOOK.md`): [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
+Code: [MIT](LICENSE). The method text is not in this repository; it is published under
+[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) with its own DOI.
 To cite the method or this implementation, see [`CITATION.cff`](CITATION.cff) —
-independent implementations, replications of the Stage 3 evaluation, and
+independent implementations, replications of the Stage 4C evaluation, and
 statutory-metric derivations for other jurisdictions are invited and will be
 credited.

@@ -1,5 +1,5 @@
 """
-Casey Method reference implementation — Stage 3 safety-first evaluation gate.
+Casey Method worked example — Stage 4C safety-first evaluation gate.
 
 Task: triage a free-text social-housing repair request into
   - priority: Emergency | Urgent | Routine
@@ -10,7 +10,7 @@ Task: triage a free-text social-housing repair request into
 
 Why this task: it has a genuine SAFETY dimension. A missed hazard (false
 negative) is the dangerous error — so the headline metric is hazard RECALL,
-not raw accuracy, per the method's metric hierarchy (PLAYBOOK.md §3, Stage 3).
+not raw accuracy, per the method's metric hierarchy (the Casey Method, §3, Stage 4C).
 The gate's bar is 100% recall on the seeded worst-failure cases; the summary
 prints an explicit pass/fail against it.
 
@@ -21,7 +21,7 @@ METHODOLOGICAL DISCLOSURE: SYSTEM_B's few-shot exemplars closely mirror test
 cases 3 and 15, and its rubric wording anticipates case 20 — the rubric and the
 dataset traps were designed together. Headline figures partly reflect that
 overlap; contamination-excluded figures and the planned held-out-set iteration
-are documented in README.md and PLAYBOOK.md §3.
+are documented in README.md and the Casey Method document, §3.
 
 Run:  python run_eval.py
 (Needs the anthropic SDK + credentials — see README.md.)
@@ -262,7 +262,7 @@ def print_comparison(a: VariantReport, b: VariantReport) -> None:
     print("=" * 62)
     print("Decision rule: hazard recall (safety) first, then priority accuracy,")
     print("then cost. A missed hazard is worse than a false alarm.")
-    # The Stage 3 gate itself (PLAYBOOK.md §3): the bar is 100% recall on the
+    # The Stage 4C gate itself (Casey Method §3): the bar is 100% recall on the
     # seeded worst-failure cases in the labelled set. Explicit pass/fail:
     print(f"RECALL BAR (100% on seeded hazards): "
           f"A {'PASS' if a.hazard_recall >= 1.0 else 'FAIL'} "

@@ -1,17 +1,19 @@
 cff-version: 1.2.0
-message: "If you use the Casey Method or this reference implementation, please cite it as below."
-title: "The Casey Method: A Safety-Gated Governance Framework for AI Adoption in Social and Assisted Housing and Other Essential Services — reference implementation"
+message: "If you use the Casey Method or this worked example, please cite it as below."
+title: "The Casey Method worked example: safety-gated AI evaluation, least-capability integration and observability on a synthetic housing estate"
 type: software
 authors:
   - family-names: Casey
     given-names: Matthew
     affiliation: "Casey IT Limited"
-    # orcid: "https://orcid.org/XXXX-XXXX-XXXX-XXXX"  # add at deposit
-version: 1.1.0
-date-released: 2026-08-22
+    orcid: "https://orcid.org/0009-0002-0543-8987"
+version: 2.0.0
+date-released: 2026-10-30
 license: MIT
-repository-code: "https://github.com/MattCasey246/casey-method-reference-implementation"
+repository-code: "https://github.com/MattCasey246/casey-method-worked-example"
 keywords:
+  - cloud modernisation
+  - cybersecurity
   - AI governance
   - safety-critical AI
   - LLM evaluation
@@ -20,14 +22,15 @@ keywords:
   - NSPIRE
   - hazard recall
   - AI readiness assessment
-# doi: 10.5281/zenodo.XXXXXXX  # concept DOI, add after Zenodo GitHub-release integration mints it
+# doi: 10.5281/zenodo.XXXXXXX  # SOFTWARE concept DOI for this worked example, minted by the Zenodo GitHub-release integration
 preferred-citation:
   type: report
-  title: "The Casey Method: A Safety-Gated Governance Framework for AI Adoption in Social and Assisted Housing and Other Essential Services"
+  title: "The Casey Method: Secure Modernisation and Safety-Gated AI Adoption for Small and Mid-Sized Organisations"
   authors:
     - family-names: Casey
       given-names: Matthew
       affiliation: "Casey IT Limited"
+      orcid: "https://orcid.org/0009-0002-0543-8987"
   year: 2026
-  version: 1.1.0
-  # doi: 10.5281/zenodo.XXXXXXX  # Playbook publication record concept DOI, add at deposit
+  version: 2.0.0
+  doi: 10.5281/zenodo.23810507  # METHOD concept DOI (always resolves to the latest version)
